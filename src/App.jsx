@@ -1,4 +1,5 @@
 import './App.css'
+import ControlFrom from './components/ControlFrom/ControlFrom'
 import FromAction from './components/FromAction/FromAction'
 import SimpleForm from './components/SimpleForm/SimpleForm'
 
@@ -11,7 +12,10 @@ function App() {
       <SimpleForm></SimpleForm>
        */}
 
-       <FromAction></FromAction>
+       {/* <FromAction></FromAction> */}
+       {/* <ControlFrom></ControlFrom>
+        */}
+        <ControlFrom></ControlFrom>
     </>
   )
 }
