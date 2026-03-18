@@ -16,9 +16,9 @@ function App() {
        {/* <FromAction></FromAction> */}
        {/* <ControlFrom></ControlFrom>
         */}
-        {/* <ControlFrom></ControlFrom>
-         */}
-         <Uncontrolled></Uncontrolled>
+        <ControlFrom></ControlFrom>
+         
+         {/* <Uncontrolled></Uncontrolled> */}
     </>
   )
 }

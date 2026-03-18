@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
 const ControlFrom = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleForm = (e) => {
     e.preventDefault();
-    console.log("submit");
+    console.log(name,email, password);
     // console.log(e.target.email.value)
     // console.log(e.target.password.value)
     if (password.length < 10) {
@@ -14,6 +16,12 @@ const ControlFrom = () => {
     } else {
       setError("");
     }
+  };
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
   };
   const handlePasswordChange = (e) => {
     console.log(e.target.value);
@@ -27,7 +35,21 @@ const ControlFrom = () => {
   return (
     <div>
       <form onSubmit={handleForm}>
-        <input type="email" placeholder="email" required name="email" />
+        <input
+          type="text"
+          defaultValue={name}
+          placeholder="Name"
+          onChange={handleNameChange}
+        />
+        <br />
+        <input
+          type="email"
+          defaultValue={email}
+          onChange={handleEmailChange}
+          placeholder="email"
+          required
+          name="email"
+        />
         <br />
         <input
           type="password"
@@ -43,7 +65,6 @@ const ControlFrom = () => {
       <p style={{ color: "red" }}>
         <small>{error}</small>
       </p>
-    
     </div>
   );
 };
