@@ -1,26 +1,49 @@
 import React, { useState } from "react";
 
 const ControlFrom = () => {
-    const[password,setPassword]=useState("")
-    const handleFrom =(e)=>{
-        e.preventDefault()
-        console.log(e)
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
+  const handleForm = (e) => {
+    e.preventDefault();
+    console.log("submit");
+    // console.log(e.target.email.value)
+    // console.log(e.target.password.value)
+    if (password.length < 10) {
+      setError("10 charater or longer password needed");
+    } else {
+      setError("");
     }
-    const handlePasswordChange=(e)=>{
-        console.log(e.target.value)
+  };
+  const handlePasswordChange = (e) => {
+    console.log(e.target.value);
+    setPassword(e.target.value);
+    if (password.length < 6) {
+      setError("Password must be 6 character or longer.");
+    } else {
+      setError("");
     }
+  };
   return (
     <div>
-      <form onSubmit={handleFrom}>
+      <form onSubmit={handleForm}>
         <input type="email" placeholder="email" required name="email" />
         <br />
-        <input type="password" 
-        defaultValue={password} onChange={handlePasswordChange}
-        placeholder="password" required name="Password" />
+        <input
+          type="password"
+          required
+          defaultValue={password}
+          onChange={handlePasswordChange}
+          placeholder="password"
+          name="password"
+        />
         <br />
-        <input type="submit" value="submit" />
+        <button type="submit">Submit</button>
       </form>
+      <p style={{ color: "red" }}>
+        <small>{error}</small>
+      </p>
+    
     </div>
   );
 };
